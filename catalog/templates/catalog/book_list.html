@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>Book List</h1>
+
+    <!-- ----------------------------------------- -->
+    <div class="jumbotron banner"> 
+        <a href="{% url 'create_book' %}" class="btn btn-primary btn-lg" role="button">Add New Car</a> 
+    </div>
+    <!-- ----------------------------------------- -->
+
+    {% if book_list %} 
+        <div class="col-md-4"> 
+            <div class="card" > 
+                {% for book in book_list %} 
+                    <div class="card-body"> 
+                        <h5 class="card-title"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})</h5> 
+                        <img src="{{ book.img.url }}" alt="{{ book.title }}" class="card-img-top"> 
+                    </div> {% endfor %} 
+                </div> 
+            </div>
+    {% else %}
+        <p>There are no books in the library.</p>
+    {% endif %}
+{% endblock %}

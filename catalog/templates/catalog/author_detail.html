@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>Title: {{ author.last_name }}, {{ author.first_name }}</h1>
+    <div style="margin-left:20px;margin-top:20px">
+        <p><strong>date of birth : {{ author.date_of_birth }}</strong></p>
+        <p><strong>date of death : {{ author.date_of_death }}</strong></p>
+    </div>
+{% endblock %}
